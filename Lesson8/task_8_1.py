@@ -8,3 +8,4 @@ def make_list_of_unique_values(primary_list: Optional[list]) -> Optional[list]:
     except TypeError:
         print('Expected list or str type')
         return None
+
