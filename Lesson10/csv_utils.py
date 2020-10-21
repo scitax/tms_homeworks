@@ -51,8 +51,8 @@ def write_csv_file(filename: str, data_dict: dict):
         csvwriter.writerows(data_dict['rows'])
 
 
-def add_new_row_to_csv(filename: str, row: list, pos: int = True):
-    if pos:
+def add_new_row_to_csv(filename: str, row: list, pos: int = None):
+    if pos is None:
         with open(filename, 'a') as csvfile:
             csvwriter = csv.writer(csvfile)
             csvwriter.writerow(row)

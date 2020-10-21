@@ -24,7 +24,8 @@ def calc_max_price(filename: str, price_column_number: int):
     product_data = scv_data_from_file['rows']
     max_price_products = []
     row_counter = 0
-    
+    max_price = 0
+
     price_data = iter(price_data)
     for int_data in price_data:
         if int_data.isdigit():
@@ -53,6 +54,7 @@ def calc_min_price(filename: str, price_column_number: int):
     product_data = scv_data_from_file['rows']
     min_price_products = []
     row_counter = 0
+    min_price = 0
 
     price_data = iter(price_data)
     for int_data in price_data:
