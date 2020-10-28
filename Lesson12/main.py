@@ -1,4 +1,4 @@
-from classes import Triangle, Circle, Point, Square
+from geometry import Triangle, Circle, Point, Square
 
 if __name__ == '__main__':
     figure_list = [

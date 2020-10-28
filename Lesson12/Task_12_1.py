@@ -1,30 +1,17 @@
 class Mytime:
-    # коммент только для учебы
-    # есь ньюансы в работе с отрицательными числами, тут нужно обсуждать вид отрицательных чисел,
-    # сейчас реализована стандартная логика для остатков заложенная в питоне
-    def time_format(self):
-        min_sec_capacity = 60
-        if abs(self.seconds) > 60:
-            min_reminder = self.seconds // min_sec_capacity
-            self.seconds = self.seconds % min_sec_capacity
-            self.minutes += min_reminder
-        if abs(self.minutes) > 60:
-            hrs_reminder = self.minutes // min_sec_capacity
-            self.minutes = self.minutes % min_sec_capacity
-            self.hours += hrs_reminder
-
     def __init__(self, *args):
         '''
         :param args:
             str: hrs:int, min:int, sec:int or str: 'hrs:min:sec' or Mytime object
         '''
-        if len(args) == 3:
+        args_len = len(args)
+        if args_len == 3:
             self.hours, self.minutes, self.seconds = args
             self.time_format()
-        elif len(args) == 1:
+        elif args_len == 1:
             in_arg = args[1]
             try:
-                if in_arg.__class__.__name__ == 'Mytime':
+                if isinstance(in_arg, Mytime):
                     self.hours = in_arg.hours
                     self.minutes = in_arg.minutes
                     self.seconds = in_arg.seconds
@@ -39,13 +26,22 @@ class Mytime:
         else:
             self.hours, self.minutes, self.seconds = (0, 0, 0)
 
+    def time_format(self):
+        min_sec_capacity = 60
+        if abs(self.seconds) > 60:
+            min_reminder = self.seconds // min_sec_capacity
+            self.seconds = self.seconds % min_sec_capacity
+            self.minutes += min_reminder
+        if abs(self.minutes) > 60:
+            hrs_reminder = self.minutes // min_sec_capacity
+            self.minutes = self.minutes % min_sec_capacity
+            self.hours += hrs_reminder
+
     def __eq__(self, other):
         return all([self.hours == other.hours, self.minutes == other.minutes, self.seconds == other.seconds])
 
     def __ne__(self, other):
-        # коммент для учебы
-        # кажется так не совсем правильно делать, десь просто для примера, что можно вызывать метод внутри метода
-        return not self.__eq__(other)
+        return all([self.hours != other.hours, self.minutes != other.minutes, self.seconds != other.seconds])
 
     def __lt__(self, other):
         return all([self.hours < other.hours, self.minutes < other.minutes, self.seconds < other.seconds])

@@ -38,15 +38,15 @@ class Triangle(Figure):
 
     def figure_square(self):
         self.square = 0.5 * abs(
-            (self.point_1.x-self.point_3.x)*(self.point_2.y-self.point_3.y) -
-            (self.point_2.x - self.point_3.x) * (self.point_1.y - self.point_3.y)
+            (self.point_1.x-self.point_3.x)*(self.point_2.y-self.point_3.y)
+            - (self.point_2.x - self.point_3.x) * (self.point_1.y - self.point_3.y)
         )
 
     def figure_perimeter(self):
         self.perimeter = (
-                self.two_point_distance(self.point_1, self.point_2) +
-                self.two_point_distance(self.point_1, self.point_3) +
-                self.two_point_distance(self.point_2, self.point_3)
+                self.two_point_distance(self.point_1, self.point_2)
+                + self.two_point_distance(self.point_1, self.point_3)
+                + self.two_point_distance(self.point_2, self.point_3)
         )
 
 
@@ -61,11 +61,3 @@ class Square(Figure):
 
     def figure_perimeter(self):
         self.perimeter = 2 * (abs(self.point_1.x - self.point_1.x)+ abs(self.point_1.y-self.point_2.y))
-
-
-
-
-
-float
-
-
