@@ -1,7 +1,7 @@
 from matrix_utils import randint
 
 
-class Matrix:
+class Matrix(object):
     data = None
     n = None
     m = None
@@ -27,6 +27,9 @@ class Matrix:
                 matrix_print = f'{matrix_print} {Matrix.data[current_row][current_element]}'
             matrix_print = matrix_print + '\n'
         return matrix_print
+
+
+    def __copy__(self):
 
     def create_matrix(self):
         Matrix.data = [[randint(self.a, self.b) for _ in range(Matrix.n)] for _ in range(Matrix.m)]
