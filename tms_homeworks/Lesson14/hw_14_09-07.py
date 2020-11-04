@@ -1,6 +1,7 @@
 import argparse
 import os
 
+
 if __name__ == '__main__':
     current_file_path = os.path.abspath(__file__)
     current_dir_path = os.path.dirname(current_file_path)
